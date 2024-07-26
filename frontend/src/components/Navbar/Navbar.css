@@ -1,0 +1,86 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.navbar .logo {
+  width: 150px;
+  cursor: pointer;
+}
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  color: var(--text);
+}
+.nav-menu li {
+  font-size: 18px;
+  list-style: none;
+  cursor: pointer;
+  text-transform: lowercase;
+  padding: 2px 0;
+  border-bottom: solid 2px transparent;
+  white-space: nowrap;
+}
+.nav-right-icons {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.nav-right-icons button {
+  background: transparent;
+  border: var(--link) 1px solid;
+  border-radius: 40px;
+  color: var(--link);
+  font-size: 16px;
+  padding: 0.7vw 2.3vw;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.nav-right-icons button:hover {
+  background: var(--link);
+  color: var(--secondary);
+}
+.navbar .active {
+  border-bottom: 2px solid var(--link);
+}
+.search-icon {
+  cursor: pointer;
+  width: 2vw;
+}
+.basket-icon {
+  width: 2vw;
+}
+.cart {
+  position: relative;
+  cursor: pointer;
+}
+.cart .dot {
+  position: absolute;
+  background: var(--link);
+  min-height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  top: -8px;
+  right: -8px;
+}
+
+@media (width <= 1050px) {
+  .navbar .logo {
+    width: 135px;
+  }
+  .nav-right-icons {
+    gap: 20px;
+  }
+}
+
+@media (width <= 850px) {
+  .nav-menu {
+    display: none;
+  }
+  .nav-right-icons {
+    gap: 15px;
+  }
+}
