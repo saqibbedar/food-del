@@ -41,3 +41,9 @@ a {
     filter: blur(0);
   }
 }
+
+@media (max-width:750px) {
+  .main{
+    width: 85%;
+  }
+}

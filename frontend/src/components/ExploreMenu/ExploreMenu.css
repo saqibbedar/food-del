@@ -5,7 +5,7 @@
 }
 .explore-menu h1 {
   color: var(--heading-text);
-  font-weight: 500;
+  font-weight: 600;
 }
 .explore-menu p {
   color: var(--text);

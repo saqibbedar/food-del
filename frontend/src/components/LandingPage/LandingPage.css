@@ -16,18 +16,18 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  max-width: 50%;
+  width: 65%;
   gap: 1.5vw;
   bottom: 10%;
   left: 6vw;
   animation: fadeIn 0.75s;
 }
 .slide-content h2 {
-  font-weight: 500;
-  font-size: max(4.5vw, 22px);
+  font-weight: 600;
+  font-size: max(4.5vw, 20px);
 }
 .slide-content p {
-  font-size: 1vw;
+  font-size: 16px;
 }
 .slide-content h2,
 p {
@@ -69,4 +69,21 @@ p {
 }
 .swiper-button-prev, .swiper-button-next{
   display: none;
+}
+
+@media (max-width: 1050px) {
+  .slide{
+    height: 40vw;
+  }
+}
+@media (max-width: 750px) {
+  .slide-content{
+    max-width: 100%;
+  }
+  .slide-content p{
+    display: none;
+  }
+  .slide-content button{
+    padding: 2vw 4vw;
+  }
 }
