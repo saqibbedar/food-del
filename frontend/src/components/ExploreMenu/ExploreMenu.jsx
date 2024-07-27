@@ -1,8 +1,6 @@
 import "./ExploreMenu.css";
 import { menu_list } from "../../assets/assets";
 
-// props are coming from home as a state for categories
-
 const ExploreMenu = ({category, setCategory}) => {
 
   return (
