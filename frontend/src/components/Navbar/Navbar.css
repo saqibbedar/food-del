@@ -60,11 +60,11 @@
 .cart .dot {
   position: absolute;
   background: var(--link);
-  min-height: 10px;
-  min-width: 10px;
+  min-height: 8px;
+  min-width: 8px;
   border-radius: 50%;
-  top: -8px;
-  right: -8px;
+  top: -6px;
+  right: -6px;
 }
 
 @media (max-width: 1050px) {
