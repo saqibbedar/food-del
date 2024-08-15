@@ -1,16 +1,23 @@
 import express from "express";
+import cors from 'cors';
 import dotenv from "dotenv";
-import cors from 'cors'
+import { connectDB } from "./config/db.js";
 
-const app = express();
 dotenv.config();
 
+// app config
+const app = express();
+const PORT = process.env.PORT || 8000;
+
+// middleware
+app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 8000
+// Database connection
+connectDB();
 
 app.get('/', (req, res)=>{
     res.send("Server is working!");
 })
 
-app.listen(PORT, ()=> console.log(`Server started on PORT: ${PORT}`));
+app.listen(PORT, () => console.log(`Server started on http://localhost:${PORT}`));
