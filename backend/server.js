@@ -2,6 +2,7 @@ import express from "express";
 import cors from 'cors';
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
+import foodRouter from "./routes/foodRoute.js";
 
 dotenv.config();
 
@@ -15,6 +16,9 @@ app.use(cors());
 
 // Database connection
 connectDB();
+
+// api endpoints
+app.use("/api/food", foodRouter);
 
 app.get('/', (req, res)=>{
     res.send("Server is working!");
