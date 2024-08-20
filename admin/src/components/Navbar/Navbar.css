@@ -1,0 +1,14 @@
+.admin-navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    align-items: center;
+}
+.admin-navbar img{
+    height: 60px;
+    cursor: pointer;
+}
+.admin-navbar img:last-child{
+    height: 40px;
+    cursor: pointer;
+}

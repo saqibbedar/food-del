@@ -9,9 +9,16 @@
 }
 html, body{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     font-family: 'Outfit', sans-serif;
+    background-color: #fcfcfc;
 }
 a {
     text-decoration: none;
+    color: inherit;
+}
+hr {
+    border: none;
+    height: 1px;
+    background: #a9a9a9;
 }
