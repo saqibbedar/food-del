@@ -1,7 +1,7 @@
 import express from "express";
 import cors from 'cors';
 import dotenv from "dotenv";
-import { connectDB } from "./config/db.js";
+import { connectToDataBase } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 
 dotenv.config();
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 // Database connection
-connectDB();
+connectToDataBase(`${process.env.MONGODB_URL}/food-del`);
 
 // api endpoints
 app.use("/api/food", foodRouter);
