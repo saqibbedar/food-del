@@ -4,8 +4,8 @@ import './Navbar.css'
 const Navbar = () => {
   return (
     <div className="admin-navbar">
-      <img src={assets.logo} alt="" />
-      <img src={assets.profile_image} alt="" />
+      <img className="logo" src={assets.logo} alt="" />
+      <img className="profile" src={assets.profile_image} alt="" />
     </div>
   )
 }
