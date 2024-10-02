@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from "dotenv";
 import { connectToDataBase } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
+import userRouter from "./routes/userRoute.js";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ connectToDataBase(`${process.env.MONGODB_URL}/food-del`);
 // api endpoints
 app.use("/api/food", foodRouter);
 app.use('/images', express.static('uploads'))
+app.use("/api/user", userRouter);
 
 app.get('/', (req, res)=>{
     res.send("Server is working!");
