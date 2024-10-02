@@ -62,6 +62,7 @@ const Add = () => {
             type="file"
             name="image"
             id="image"
+            accept="image/*"
             hidden
           />
         </div>
