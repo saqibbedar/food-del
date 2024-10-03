@@ -428,3 +428,5 @@ export const slidesArray = [
     btnValue: "Order Now",
   },
 ];
+
+export const url = "http://localhost:5000";

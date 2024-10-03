@@ -66,6 +66,49 @@
   top: -6px;
   right: -6px;
 }
+.navbar-profile {
+  position: relative;
+}
+
+.nav-profile-dropdown {
+  position: absolute;
+  display: none;
+  right: 0;
+  z-index: 1;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff2ef;
+  padding: 12px 25px;
+  border-radius: 4px;
+  z-index: 100;
+  border: 1px solid tomato;
+  outline: 2px solid white;
+  list-style: none;
+}
+
+.nav-profile-dropdown li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.nav-profile-dropdown li > p {
+  color: black;
+  transition: color .2s;
+}
+
+.nav-profile-dropdown li:hover > p {
+  color: tomato;
+}
+
+.nav-profile-dropdown img{
+  width: 20px;
+}
 
 @media (max-width: 1050px) {
   .navbar .logo{
