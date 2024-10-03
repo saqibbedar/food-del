@@ -6,6 +6,7 @@ export const StoreContext = createContext(null);
 const storeContextProvider = ({children})=>{
 
     const [cartItems, setCartItems] = useState({});
+    const [token, setToken] = useState("");
 
     const addToCart = (itemId) => {
         if(!cartItems[itemId]){
@@ -30,6 +31,15 @@ const storeContextProvider = ({children})=>{
         return totalAmount;
     }
 
+    useEffect(() => {
+        const storedToken = localStorage.getItem("token");
+        if (storedToken) {
+            setToken(storedToken);
+        } else {
+            console.log("Token not found!");
+        }
+    }, []);
+
     const contextValue = {
         food_list,
         cartItems,
@@ -37,6 +47,8 @@ const storeContextProvider = ({children})=>{
         addToCart,
         removeFromCart,
         getTotalCartAmount,
+        token,
+        setToken
     }
     
     return (
