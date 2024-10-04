@@ -25,16 +25,20 @@ const addToCart = async (req, res) => {
 // remove items from user cart
 const removeFromCart = async (req, res) => {
   try {
-    const userData = await userModel.findById(req.body.userId);
+    const userData = await userModel.findById(req.body.userId); // req.body.userId from authMiddleware
     const cartData = userData.cartData;
-    if (cartData[req.body.itemId] > 0) {
-      cartData[req.body.itemId] -= 1;
-    } 
+    const itemId = req.query.itemId; // Get itemId from query params
+    if (cartData[itemId] > 0) {
+      cartData[itemId] -= 1;
+    }
     await userModel.findByIdAndUpdate(req.body.userId, { cartData });
-    res.json({success: true, message: "Removed From Cart"})
+    res.json({ success: true, message: "Removed From Cart" });
   } catch (error) {
     console.error(error);
-    res.json({success: false, message: "Error while removing data from Cart"})
+    res.json({
+      success: false,
+      message: "Error while removing data from Cart",
+    });
   }
 };
 
