@@ -1,5 +1,5 @@
 import { useContext} from "react"
-import { assets } from "../../assets/assets"
+import { assets, url } from "../../assets/assets"
 import "./FoodItem.css"
 import { StoreContext } from "../../context/StoreContext";
 
@@ -10,7 +10,7 @@ const FoodItem = ({id, name, price, description, img}) => {
   return (
     <div className="food-item">
       <div className="food-item-img-container">
-        <img className="food-item-img" src={img}/>
+        <img className="food-item-img" src={`${url}/images/${img}`}/>
         {!cartItems[id] ? 
         <img className="add" onClick={()=>addToCart(id)} src={assets.add_icon_white}/> 
         : 
