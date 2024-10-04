@@ -73,7 +73,11 @@ const Cart = () => {
           </div>
           <button
             disabled={isButtonDisable}
-            style={{ background: isButtonDisable ? "#a1a1a1" : "tomato", cursor: isButtonDisable? "no-drop" : "pointer" }}
+            style={{
+              background: isButtonDisable ? "#ff63477d" : "tomato",
+              cursor: isButtonDisable ? "no-drop" : "pointer",
+            }}
+            title={isButtonDisable? (!token ? "Please login to proceed" : "Add items to the cart to proceed"): ""}
             onClick={() => navigate("/order")}
           >
             PROCEED TO CHECKOUT
