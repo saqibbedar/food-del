@@ -34,7 +34,7 @@ const foodList = async (req, res) => {
   }
 };
 
-// remove fodd
+// remove food
 
 const removeFood = async (req, res) => {
   try {
@@ -48,4 +48,37 @@ const removeFood = async (req, res) => {
   }
 };
 
-export { addFood, foodList, removeFood };
+// Update food
+
+const updateFood = async (req, res) => {
+  try {
+    const { name, description, price, category, foodId } = req.body;
+    const updateFields = { name, description, price, category };
+
+    if (req.file) {
+      updateFields.image = req.file.filename; // Only update image if a new one is uploaded
+    }
+
+    const updatedFood = await foodModel.findByIdAndUpdate(
+      foodId,
+      updateFields,
+      { new: true }
+    );
+
+    if (updatedFood) {
+      res.json({
+        success: true,
+        message: "Food updated successfully!",
+        data: updatedFood,
+      });
+    } else {
+      res.json({ success: false, message: "Food not found" });
+    }
+    
+  } catch (error) {
+    console.error(error);
+    res.json({ success: false, message: "Error while updating Food" });
+  }
+}
+
+export { addFood, foodList, removeFood, updateFood };
