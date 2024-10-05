@@ -1,11 +1,12 @@
-import { assets, url } from '../../assets/assets';
-import './Orders.css';
+import { assets, url } from "../../assets/assets";
+import "./Orders.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 const Orders = () => {
   const [data, setData] = useState([]);
+
   const fetchAllOrders = async () => {
     const response = await axios.get(`${url}/api/order/list`);
     if (response.data.success) {
@@ -13,10 +14,25 @@ const Orders = () => {
     } else {
       toast.error(response.data.message);
     }
-  }
+  };
+
+  const updateStatus = async (event, orderId) => {
+    const response = await axios.put(`${url}/api/order/status`, {
+      orderId,
+      status: event.target.value,
+    });
+    if (response.data.success) {
+      await fetchAllOrders();
+      toast.success(response.data.message);
+    } else {
+      toast.error(response.data.message);
+    }
+  };
+
   useEffect(() => {
     fetchAllOrders();
-  }, [])
+  }, []);
+  
   return (
     <div className="order add">
       <h3>Order Page</h3>
@@ -53,7 +69,10 @@ const Orders = () => {
             </div>
             <p>Items: {order.items.length}</p>
             <p>${order.amount}</p>
-            <select>
+            <select
+              onChange={(event) => updateStatus(event, order._id)}
+              value={order.status}
+            >
               <option value="Food Processing">Food Processing</option>
               <option value="Out for Delivery">Out for Delivery</option>
               <option value="Delivered">Delivered</option>
@@ -63,6 +82,6 @@ const Orders = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Orders
+export default Orders;
